@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		202365501D425A5600166247 /* Car+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023654E1D425A5600166247 /* Car+CoreDataProperties.swift */; };
+		202365511D425A5600166247 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2023654F1D425A5600166247 /* Car.swift */; };
 		352762DA1C0AEC0000A3BABA /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 359705B91C0829ED00D13FE9 /* data.plist */; };
 		352762DB1C0AEEEA00A3BABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 359705AA1C08159E00D13FE9 /* Assets.xcassets */; };
 		352762DD1C0AEF0900A3BABA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359705A41C08159E00D13FE9 /* Main.storyboard */; };
@@ -17,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2023654E1D425A5600166247 /* Car+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Car+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		2023654F1D425A5600166247 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		359705A01C08159E00D13FE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		359705A21C08159E00D13FE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		359705A51C08159E00D13FE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -60,6 +64,8 @@
 			children = (
 				359705A01C08159E00D13FE9 /* AppDelegate.swift */,
 				359705A21C08159E00D13FE9 /* ViewController.swift */,
+				2023654E1D425A5600166247 /* Car+CoreDataProperties.swift */,
+				2023654F1D425A5600166247 /* Car.swift */,
 				359705A41C08159E00D13FE9 /* Main.storyboard */,
 				359705AA1C08159E00D13FE9 /* Assets.xcassets */,
 				359705AC1C08159E00D13FE9 /* LaunchScreen.storyboard */,
@@ -142,7 +148,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				202365501D425A5600166247 /* Car+CoreDataProperties.swift in Sources */,
 				352762E11C0AEF3600A3BABA /* ViewController.swift in Sources */,
+				202365511D425A5600166247 /* Car.swift in Sources */,
 				352762E01C0AEF3400A3BABA /* AppDelegate.swift in Sources */,
 				352762DF1C0AEF3100A3BABA /* MyCars.xcdatamodeld in Sources */,
 			);
