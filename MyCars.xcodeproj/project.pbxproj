@@ -7,16 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		359705A11C08159E00D13FE9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359705A01C08159E00D13FE9 /* AppDelegate.swift */; };
-		359705A31C08159E00D13FE9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359705A21C08159E00D13FE9 /* ViewController.swift */; };
-		359705A61C08159E00D13FE9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359705A41C08159E00D13FE9 /* Main.storyboard */; };
-		359705A91C08159E00D13FE9 /* MyCars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 359705A71C08159E00D13FE9 /* MyCars.xcdatamodeld */; };
-		359705AB1C08159E00D13FE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 359705AA1C08159E00D13FE9 /* Assets.xcassets */; };
-		359705AE1C08159E00D13FE9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359705AC1C08159E00D13FE9 /* LaunchScreen.storyboard */; };
+		352762DA1C0AEC0000A3BABA /* data.plist in Resources */ = {isa = PBXBuildFile; fileRef = 359705B91C0829ED00D13FE9 /* data.plist */; };
+		352762DB1C0AEEEA00A3BABA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 359705AA1C08159E00D13FE9 /* Assets.xcassets */; };
+		352762DD1C0AEF0900A3BABA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359705A41C08159E00D13FE9 /* Main.storyboard */; };
+		352762DE1C0AEF1500A3BABA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 359705AC1C08159E00D13FE9 /* LaunchScreen.storyboard */; };
+		352762DF1C0AEF3100A3BABA /* MyCars.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 359705A71C08159E00D13FE9 /* MyCars.xcdatamodeld */; };
+		352762E01C0AEF3400A3BABA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359705A01C08159E00D13FE9 /* AppDelegate.swift */; };
+		352762E11C0AEF3600A3BABA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 359705A21C08159E00D13FE9 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3597059D1C08159E00D13FE9 /* MyCars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		359705A01C08159E00D13FE9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		359705A21C08159E00D13FE9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		359705A51C08159E00D13FE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -24,10 +24,12 @@
 		359705AA1C08159E00D13FE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		359705AD1C08159E00D13FE9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		359705AF1C08159E00D13FE9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		359705B91C0829ED00D13FE9 /* data.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = data.plist; sourceTree = "<group>"; };
+		35F2F4DF1C084725000E1CB3 /* MyCars.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCars.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		3597059A1C08159E00D13FE9 /* Frameworks */ = {
+		35F2F4DC1C084725000E1CB3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -48,7 +50,7 @@
 		3597059E1C08159E00D13FE9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3597059D1C08159E00D13FE9 /* MyCars.app */,
+				35F2F4DF1C084725000E1CB3 /* MyCars.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +63,7 @@
 				359705A41C08159E00D13FE9 /* Main.storyboard */,
 				359705AA1C08159E00D13FE9 /* Assets.xcassets */,
 				359705AC1C08159E00D13FE9 /* LaunchScreen.storyboard */,
+				359705B91C0829ED00D13FE9 /* data.plist */,
 				359705AF1C08159E00D13FE9 /* Info.plist */,
 				359705A71C08159E00D13FE9 /* MyCars.xcdatamodeld */,
 			);
@@ -70,13 +73,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3597059C1C08159E00D13FE9 /* MyCars */ = {
+		35F2F4DE1C084725000E1CB3 /* MyCars */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 359705B21C08159E00D13FE9 /* Build configuration list for PBXNativeTarget "MyCars" */;
+			buildConfigurationList = 35F2F4F11C084725000E1CB3 /* Build configuration list for PBXNativeTarget "MyCars" */;
 			buildPhases = (
-				359705991C08159E00D13FE9 /* Sources */,
-				3597059A1C08159E00D13FE9 /* Frameworks */,
-				3597059B1C08159E00D13FE9 /* Resources */,
+				35F2F4DB1C084725000E1CB3 /* Sources */,
+				35F2F4DC1C084725000E1CB3 /* Frameworks */,
+				35F2F4DD1C084725000E1CB3 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -84,7 +87,7 @@
 			);
 			name = MyCars;
 			productName = MyCars;
-			productReference = 3597059D1C08159E00D13FE9 /* MyCars.app */;
+			productReference = 35F2F4DF1C084725000E1CB3 /* MyCars.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -97,7 +100,7 @@
 				LastUpgradeCheck = 0710;
 				ORGANIZATIONNAME = "Ivan Akulov";
 				TargetAttributes = {
-					3597059C1C08159E00D13FE9 = {
+					35F2F4DE1C084725000E1CB3 = {
 						CreatedOnToolsVersion = 7.1.1;
 					};
 				};
@@ -115,32 +118,33 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3597059C1C08159E00D13FE9 /* MyCars */,
+				35F2F4DE1C084725000E1CB3 /* MyCars */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3597059B1C08159E00D13FE9 /* Resources */ = {
+		35F2F4DD1C084725000E1CB3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				359705AE1C08159E00D13FE9 /* LaunchScreen.storyboard in Resources */,
-				359705AB1C08159E00D13FE9 /* Assets.xcassets in Resources */,
-				359705A61C08159E00D13FE9 /* Main.storyboard in Resources */,
+				352762DE1C0AEF1500A3BABA /* LaunchScreen.storyboard in Resources */,
+				352762DD1C0AEF0900A3BABA /* Main.storyboard in Resources */,
+				352762DB1C0AEEEA00A3BABA /* Assets.xcassets in Resources */,
+				352762DA1C0AEC0000A3BABA /* data.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		359705991C08159E00D13FE9 /* Sources */ = {
+		35F2F4DB1C084725000E1CB3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				359705A31C08159E00D13FE9 /* ViewController.swift in Sources */,
-				359705A91C08159E00D13FE9 /* MyCars.xcdatamodeld in Sources */,
-				359705A11C08159E00D13FE9 /* AppDelegate.swift in Sources */,
+				352762E11C0AEF3600A3BABA /* ViewController.swift in Sources */,
+				352762E01C0AEF3400A3BABA /* AppDelegate.swift in Sources */,
+				352762DF1C0AEF3100A3BABA /* MyCars.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,24 +251,26 @@
 			};
 			name = Release;
 		};
-		359705B31C08159E00D13FE9 /* Debug */ = {
+		35F2F4F21C084725000E1CB3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyCars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.swiftbook.MyCars;
+				PRODUCT_BUNDLE_IDENTIFIER = NavyFox.MyCars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
 		};
-		359705B41C08159E00D13FE9 /* Release */ = {
+		35F2F4F31C084725000E1CB3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = MyCars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = ru.swiftbook.MyCars;
+				PRODUCT_BUNDLE_IDENTIFIER = NavyFox.MyCars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -281,13 +287,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		359705B21C08159E00D13FE9 /* Build configuration list for PBXNativeTarget "MyCars" */ = {
+		35F2F4F11C084725000E1CB3 /* Build configuration list for PBXNativeTarget "MyCars" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				359705B31C08159E00D13FE9 /* Debug */,
-				359705B41C08159E00D13FE9 /* Release */,
+				35F2F4F21C084725000E1CB3 /* Debug */,
+				35F2F4F31C084725000E1CB3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
