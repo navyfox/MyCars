@@ -12,6 +12,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        let viewController = window?.rootViewController as! ViewController
+        viewController.managedContext = managedObjectContext
+
+
+//        let car = NSEntityDescription.insertNewObjectForEntityForName("Car", inManagedObjectContext: managedObjectContext) as! Car
+//
+//        car.mark = "Lamborgini"
+//        car.lastStarted = NSDate()
+//
+//        do {
+//            try managedObjectContext.save()
+//        } catch let error as NSError {
+//            print("error: \(error)")
+//        }
+//
+//        do {
+//            let request = NSFetchRequest(entityName: "Car")
+//            let cars = try managedObjectContext.executeFetchRequest(request) as! [Car]
+//
+//            let exactCar: Car = cars.first!
+//            print("my car \(exactCar.mark), \(exactCar.lastStarted)")
+//        } catch let error as NSError {
+//            print("error: \(error)")
+//        }
+
         return true
     }
 
