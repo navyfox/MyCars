@@ -43,21 +43,21 @@ class ViewController: UIViewController {
 
             let carDict = dictionary as! NSDictionary
 
-            car.mark = carDict["mark"] as! String
-            car.model = carDict["model"] as! String
-            car.rating = carDict["rating"] as! NSNumber
+            car.mark = carDict["mark"] as? String
+            car.model = carDict["model"] as? String
+            car.rating = carDict["rating"] as? NSNumber
 
-            let colorDict = carDict["tintcolor"] as! NSDictionary
-            car.tintColor = getColor(colorDict)
+            let colorDict = carDict["tintcolor"] as? NSDictionary
+            car.tintColor = getColor(colorDict!)
 
-            let imageName = carDict["imageName"] as! String
-            let image = UIImage(named: imageName)
+            let imageName = carDict["imageName"] as? String
+            let image = UIImage(named: imageName!)
             let imageData = UIImagePNGRepresentation(image!)
             car.imageData = imageData
 
-            car.lastStarted = carDict["lastStarted"] as! NSDate
-            car.timesDriven = carDict["timesDriven"] as! NSNumber
-            car.myChoice = carDict["myChoice"] as! NSNumber
+            car.lastStarted = carDict["lastStarted"] as? NSDate
+            car.timesDriven = carDict["timesDriven"] as? NSNumber
+            car.myChoice = carDict["myChoice"] as? NSNumber
 
 
         }
