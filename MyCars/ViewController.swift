@@ -36,7 +36,7 @@ class ViewController: UIViewController {
             selectedCar = results.first
             insertDataFrom(selectedCar)
         } catch let error as NSError {
-            print("error: \(error)")
+            print("error: \(error.localizedDescription)")
         }
 
 
@@ -46,8 +46,8 @@ class ViewController: UIViewController {
         carImageView.image = UIImage(data: car.imageData!)
         modelLabel.text = car.model
         markLabel.text = car.mark
-        ratingLabel.text = "Rating: \(car.rating?.doubleValue) / 10.0"
-        numberOfTripsLabel.text = "times driven: \(car.timesDriven?.integerValue)"
+        ratingLabel.text = "Rating: \(car.rating!.doubleValue) / 10.0"
+        numberOfTripsLabel.text = "times driven: \(car.timesDriven!.integerValue)"
         let dateFormatter = NSDateFormatter()
         dateFormatter.dateStyle = .ShortStyle
         dateFormatter.timeStyle = .NoStyle
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
             car.model = carDict["model"] as? String
             car.rating = carDict["rating"] as? NSNumber
 
-            let colorDict = carDict["tintcolor"] as? NSDictionary
+            let colorDict = carDict["tintColor"] as? NSDictionary
             car.tintColor = getColor(colorDict!)
 
             let imageName = carDict["imageName"] as? String
@@ -114,11 +114,50 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startEnginePressed(sender: UIButton) {
-        
+        let timesDriven = selectedCar.timesDriven?.integerValue
+        selectedCar.timesDriven = NSNumber(integer: (timesDriven! + 1))
+
+        selectedCar.lastStarted = NSDate()
+
+        do {
+            try managedContext.save()
+            insertDataFrom(selectedCar)
+        } catch let error as NSError {
+            print("Save timesDriven and lastStarted error: \(error.localizedDescription)")
+        }
     }
     
     @IBAction func rateItPressed(sender: UIButton) {
-        
+        let alert = UIAlertController(title: "Rate it", message: "Rate this car", preferredStyle: .Alert)
+        let rateAction = UIAlertAction(title: "Rate", style: .Default) { (action: UIAlertAction) in
+            let textField = alert.textFields?.first
+            self.updateRating((textField?.text)!)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Default) { (action: UIAlertAction) in
+
+        }
+        alert.addTextFieldWithConfigurationHandler { (textField: UITextField) in
+            textField.keyboardType = .NumberPad
+        }
+        alert.addAction(rateAction)
+        alert.addAction(cancelAction)
+
+        presentViewController(alert, animated: true, completion: nil)
+    }
+
+    func updateRating(string: String) {
+        selectedCar.rating = (string as NSString).doubleValue
+
+        do {
+            try managedContext.save()
+            insertDataFrom(selectedCar)
+        } catch let error as NSError {
+            let alert = UIAlertController(title: "Wrong", message: "Value is not from 0 to 10", preferredStyle: .Alert)
+            let okAction = UIAlertAction(title: "ok", style: .Default, handler: nil)
+            alert.addAction(okAction)
+            presentViewController(alert, animated: true, completion: nil)
+            print("Rating save error: \(error.localizedDescription)")
+        }
     }
 }
 
