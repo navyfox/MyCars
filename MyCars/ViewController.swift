@@ -9,6 +9,7 @@ import CoreData
 class ViewController: UIViewController {
     
     var managedContext: NSManagedObjectContext!
+    var selectedCar: Car!
     
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     @IBOutlet weak var markLabel: UILabel!
@@ -23,7 +24,39 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-    
+
+        insertDataFromPlist()
+        let request = NSFetchRequest(entityName: "Car")
+        let mark = segmentedControl.titleForSegmentAtIndex(0)
+
+        request.predicate = NSPredicate(format: "mark == %@", mark!)
+
+        do {
+            let results = try managedContext.executeFetchRequest(request) as! [Car]
+            selectedCar = results.first
+            insertDataFrom(selectedCar)
+        } catch let error as NSError {
+            print("error: \(error)")
+        }
+
+
+    }
+
+    func insertDataFrom(car: Car) {
+        carImageView.image = UIImage(data: car.imageData!)
+        modelLabel.text = car.model
+        markLabel.text = car.mark
+        ratingLabel.text = "Rating: \(car.rating?.doubleValue) / 10.0"
+        numberOfTripsLabel.text = "times driven: \(car.timesDriven?.integerValue)"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateStyle = .ShortStyle
+        dateFormatter.timeStyle = .NoStyle
+        lastTimeStartedLabel.text = "Last started: " + dateFormatter.stringFromDate(car.lastStarted!)
+        myChoiceImageView.hidden = !car.myChoice!.boolValue
+        view.tintColor = car.tintColor as! UIColor
+
+
+
     }
 
     func insertDataFromPlist() {
@@ -58,7 +91,6 @@ class ViewController: UIViewController {
             car.lastStarted = carDict["lastStarted"] as? NSDate
             car.timesDriven = carDict["timesDriven"] as? NSNumber
             car.myChoice = carDict["myChoice"] as? NSNumber
-
 
         }
     }
