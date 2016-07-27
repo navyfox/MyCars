@@ -109,8 +109,19 @@ class ViewController: UIViewController {
     }
     
     
-    @IBAction func segmentedCtrlPressed(sender: UISegmentedControl) {
-        
+    @IBAction func segmentedCtrlPressed(segCtrl: UISegmentedControl) {
+
+        let selectedTitle = segCtrl.titleForSegmentAtIndex(segCtrl.selectedSegmentIndex)
+        let fetchRequest = NSFetchRequest(entityName: "Car")
+        fetchRequest.predicate = NSPredicate(format: "mark == %@", selectedTitle!)
+
+        do {
+            let result = try managedContext.executeFetchRequest(fetchRequest) as! [Car]
+            selectedCar = result.first
+            insertDataFrom(selectedCar)
+        }catch let error as NSError {
+            print("Can't perform request: \(error.localizedDescription)")
+        }
     }
     
     @IBAction func startEnginePressed(sender: UIButton) {
