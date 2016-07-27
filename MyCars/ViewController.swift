@@ -26,8 +26,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 
         insertDataFromPlist()
+        //подгружаем только для segmentedControl с 0 индексом при загрузке приложения
         let request = NSFetchRequest(entityName: "Car")
-        let mark = segmentedControl.titleForSegmentAtIndex(0)
+        let mark = segmentedControl.titleForSegmentAtIndex(1)
 
         request.predicate = NSPredicate(format: "mark == %@", mark!)
 
@@ -41,7 +42,7 @@ class ViewController: UIViewController {
 
 
     }
-
+//обновляем ярлыки в зависимости от машины
     func insertDataFrom(car: Car) {
         carImageView.image = UIImage(data: car.imageData!)
         modelLabel.text = car.model
@@ -59,17 +60,18 @@ class ViewController: UIViewController {
 
     }
 
+//извлекаем все данные из файла data.plist в entity Car
     func insertDataFromPlist() {
+        //делаем запрос на получение из CoreData обьектов с филтром где mark != nil
         let fetchRequest = NSFetchRequest(entityName: "Car")
         fetchRequest.predicate = NSPredicate(format: "mark != nil")
-
+//проверяем сколько обьектов мы получили, если они есть то выходим из func
         let count = managedContext.countForFetchRequest( fetchRequest, error: nil)
-
         guard count == 0 else {return}
-
+//создаем путь для файла, затем все что извлекается закидываем в массив
         let pathToFile = NSBundle.mainBundle().pathForResource("data", ofType: "plist")
         let daraArray = NSArray(contentsOfFile: pathToFile!)
-
+//пребираем наш масив словарей в качастве AnyObject
         for dictionary: AnyObject in daraArray! {
             let entity = NSEntityDescription.entityForName("Car", inManagedObjectContext: managedContext)
             let car = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: managedContext) as! Car
@@ -110,14 +112,17 @@ class ViewController: UIViewController {
     
     
     @IBAction func segmentedCtrlPressed(segCtrl: UISegmentedControl) {
-
+//создаем заголовок по segCtrl
         let selectedTitle = segCtrl.titleForSegmentAtIndex(segCtrl.selectedSegmentIndex)
+//создаем запрос и отбираем по заголовку
         let fetchRequest = NSFetchRequest(entityName: "Car")
         fetchRequest.predicate = NSPredicate(format: "mark == %@", selectedTitle!)
-
+//пытаемся созранить и обновить или ошибку выводим
         do {
+            //сохраняем результат в конкретный selectedCar
             let result = try managedContext.executeFetchRequest(fetchRequest) as! [Car]
             selectedCar = result.first
+            //меняем ярлыки
             insertDataFrom(selectedCar)
         }catch let error as NSError {
             print("Can't perform request: \(error.localizedDescription)")
@@ -125,11 +130,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func startEnginePressed(sender: UIButton) {
+//извлекаем количество запусков и меняем
         let timesDriven = selectedCar.timesDriven?.integerValue
         selectedCar.timesDriven = NSNumber(integer: (timesDriven! + 1))
-
+//меняем дату запуска
         selectedCar.lastStarted = NSDate()
-
+//пытаемся созранить и обновить или ошибку выводим
         do {
             try managedContext.save()
             insertDataFrom(selectedCar)
@@ -158,7 +164,7 @@ class ViewController: UIViewController {
 
     func updateRating(string: String) {
         selectedCar.rating = (string as NSString).doubleValue
-
+//пытаемся созранить и обновить или ошибку выводим
         do {
             try managedContext.save()
             insertDataFrom(selectedCar)

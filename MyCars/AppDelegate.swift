@@ -12,7 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-
+        
+//присволили переменой managedContext(которая хранится во ViewController) managedObjectContext
         let viewController = window?.rootViewController as! ViewController
         viewController.managedContext = managedObjectContext
 
